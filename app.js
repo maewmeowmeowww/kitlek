@@ -26,10 +26,13 @@ const typeLabels = {
   "sub-1": "ลบเลข 1 หลัก",
   "sub-2-1": "ลบเลข 2 หลัก - 1 หลัก",
   "sub-2": "ลบเลข 2 หลัก",
-  "mul-12": "คูณ แม่ 1-12",
   "mul-2x1": "คูณ 2 หลัก × 1 หลัก",
   "div-2x1": "หาร 2 หลัก ÷ 1 หลัก ไม่มีเศษ"
 };
+
+for (let table = 1; table <= 12; table += 1) {
+  typeLabels[`mul-table-${table}`] = `คูณ แม่ ${table}`;
+}
 
 function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -118,8 +121,8 @@ function makeQuestion(type) {
     return { text: `${a} - ${b} = ?`, answer: a - b };
   }
 
-  if (type === "mul-12") {
-    const a = randomInt(1, 12);
+  if (type.startsWith("mul-table-")) {
+    const a = Number(type.replace("mul-table-", ""));
     const b = randomInt(1, 12);
     return { text: `${a} × ${b} = ?`, answer: a * b };
   }
