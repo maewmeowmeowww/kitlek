@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ฝึกคำนวณเลข</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <div>
+          <a class="back-link" href="index.html">← กลับหน้าหลัก</a>
+          <p class="label">Arithmetic Practice</p>
+          <h1>ฝึกคำนวณเลข</h1>
+        </div>
+        <img class="mascot" src="hippo-somtam.png" alt="ฮิปโปกำลังกินส้มตำ">
+      </header>
+
+      <section class="layout">
+        <aside class="panel" aria-label="ตั้งค่าแบบฝึก">
+          <h2>ตั้งค่า</h2>
+
+          <fieldset class="check-group">
+            <legend>ชนิดของโจทย์</legend>
+            <label><input type="checkbox" name="type" value="add-1"> บวกเลข 1 หลัก</label>
+            <label><input type="checkbox" name="type" value="add-2"> บวกเลข 2 หลัก</label>
+            <label><input type="checkbox" name="type" value="sub-1"> ลบเลข 1 หลัก</label>
+            <label><input type="checkbox" name="type" value="sub-2-1"> ลบเลข 2 หลัก - 1 หลัก</label>
+            <label><input type="checkbox" name="type" value="sub-2"> ลบเลข 2 หลัก</label>
+            <label><input type="checkbox" name="type" value="mul-12"> คูณ แม่ 1-12</label>
+            <label><input type="checkbox" name="type" value="mul-2x1"> คูณ 2 หลัก × 1 หลัก</label>
+            <label><input type="checkbox" name="type" value="div-2x1"> หาร 2 หลัก ÷ 1 หลัก ไม่มีเศษ</label>
+          </fieldset>
+
+          <fieldset class="check-group">
+            <legend>จำนวนข้อ</legend>
+            <label><input type="checkbox" name="count" value="20" checked> 20 ข้อ</label>
+            <label><input type="checkbox" name="count" value="40"> 40 ข้อ</label>
+          </fieldset>
+
+          <button id="startButton" type="button">เริ่ม</button>
+        </aside>
+
+        <section class="practice" aria-label="โจทย์">
+          <div class="status">
+            <span id="questionCount">ข้อที่ 1 / 20</span>
+            <span id="resultText">พร้อมเริ่ม</span>
+            <span id="timerText">เวลา 00:00</span>
+          </div>
+          <div class="problem" id="problemText">? + ? = ?</div>
+          <div class="summary" id="summaryText" hidden></div>
+          <form class="answer" id="answerForm">
+            <input id="answerInput" type="number" inputmode="numeric" enterkeyhint="done" placeholder="คำตอบ">
+            <button type="submit">ตอบ</button>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

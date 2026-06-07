@@ -1,0 +1,381 @@
+:root {
+  --bg: #f5f7fb;
+  --text: #202124;
+  --muted: #667085;
+  --line: #d7deea;
+  --panel: #ffffff;
+  --accent: #2563eb;
+  --accent-dark: #1d4ed8;
+  --success: #188157;
+  --danger: #c43b3b;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  min-height: 44px;
+  border: 0;
+  border-radius: 8px;
+  padding: 0 18px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--accent-dark);
+}
+
+a {
+  color: inherit;
+}
+
+.app {
+  width: min(1040px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0;
+}
+
+.home-app {
+  min-height: 100vh;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(140px, 230px);
+  gap: 18px;
+  align-items: end;
+  margin-bottom: 22px;
+}
+
+.label {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  margin-bottom: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 12px;
+  background: #fff;
+  color: var(--text);
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+h1,
+h2 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+h1 {
+  font-size: clamp(2.35rem, 7vw, 5rem);
+  line-height: 1;
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+
+.mascot {
+  width: 100%;
+  max-height: 230px;
+  object-fit: contain;
+  justify-self: end;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 310px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.home-card {
+  min-height: 190px;
+  display: grid;
+  align-content: space-between;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 22px;
+  background: var(--panel);
+  text-decoration: none;
+  box-shadow: 0 18px 44px rgba(33, 39, 56, 0.07);
+}
+
+.home-card:hover {
+  border-color: var(--accent);
+}
+
+.home-card span {
+  color: var(--accent);
+  font-size: 0.86rem;
+  font-weight: 900;
+}
+
+.home-card strong {
+  display: block;
+  margin-top: 28px;
+  font-size: 1.45rem;
+  line-height: 1.15;
+}
+
+.home-card small {
+  color: var(--muted);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.panel,
+.practice {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  padding: 22px;
+}
+
+fieldset {
+  margin: 18px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+legend {
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.check-group {
+  display: grid;
+  gap: 9px;
+}
+
+label {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  color: var(--text);
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--accent);
+  flex: 0 0 auto;
+}
+
+input[type="number"] {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 12px;
+  background: #fff;
+}
+
+input.is-hidden {
+  display: none;
+}
+
+.panel button {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.status {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 12px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.status span:nth-child(2) {
+  text-align: center;
+}
+
+.status span:last-child {
+  text-align: right;
+}
+
+.problem {
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-size: clamp(3rem, 10vw, 7rem);
+  font-weight: 900;
+}
+
+.unit-problem {
+  font-size: clamp(2.6rem, 8vw, 5.4rem);
+}
+
+.fraction-problem {
+  min-height: 120px;
+  display: grid;
+  gap: 10px;
+  place-items: center;
+  padding: 18px 0 14px;
+  text-align: center;
+  font-size: clamp(1.6rem, 7vw, 3rem);
+  line-height: 1.15;
+  white-space: normal;
+}
+
+.fraction-line {
+  width: 100%;
+  display: block;
+  overflow-wrap: normal;
+  white-space: nowrap;
+}
+
+.original-line {
+  font-size: 1.12em;
+}
+
+.fraction-work {
+  display: grid;
+  gap: 18px;
+}
+
+.fraction-work button {
+  justify-self: end;
+  min-width: 120px;
+}
+
+input.inline-answer {
+  width: 1.8em;
+  min-width: 1.8em;
+  max-width: 1.8em;
+  min-height: 1.65em;
+  border: 2px solid var(--line);
+  border-radius: 6px;
+  padding: 0;
+  text-align: center;
+  font-size: 0.72em;
+  font-weight: 850;
+  vertical-align: middle;
+  appearance: textfield;
+}
+
+.inline-answer::-webkit-outer-spin-button,
+.inline-answer::-webkit-inner-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+input.inline-answer:focus {
+  border-color: var(--accent);
+  outline: 0;
+}
+
+.summary {
+  width: min(100%, 520px);
+  margin: -20px auto 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px 16px;
+  background: #f8fafc;
+  color: var(--muted);
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.summary strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text);
+}
+
+.answer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 120px;
+  gap: 10px;
+}
+
+.fraction-answer {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) 120px;
+}
+
+.fraction-answer.is-final {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 120px;
+}
+
+.is-correct {
+  color: var(--success);
+}
+
+.is-wrong {
+  color: var(--danger);
+}
+
+@media (max-width: 760px) {
+  .header,
+  .layout,
+  .home-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .status {
+    grid-template-columns: 1fr;
+  }
+
+  .status span,
+  .status span:nth-child(2),
+  .status span:last-child {
+    text-align: left;
+  }
+
+  .mascot {
+    max-width: 210px;
+    justify-self: center;
+  }
+
+  .answer,
+  .fraction-answer,
+  .fraction-answer.is-final {
+    grid-template-columns: 1fr;
+  }
+}

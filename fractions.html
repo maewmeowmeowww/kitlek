@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>เศษส่วนและทศนิยม</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <div>
+          <a class="back-link" href="index.html">← กลับหน้าหลัก</a>
+          <p class="label">Fractions Practice</p>
+          <h1>เศษส่วนและทศนิยม</h1>
+        </div>
+        <img class="mascot" src="hippo-somtam.png" alt="ฮิปโปกำลังกินส้มตำ">
+      </header>
+
+      <section class="layout">
+        <aside class="panel" aria-label="ตั้งค่าแบบฝึก">
+          <h2>ตั้งค่า</h2>
+          <fieldset class="check-group">
+            <legend>ชนิดของโจทย์</legend>
+            <label><input type="checkbox" name="type" value="frac-add"> บวกเศษส่วน ต้องทำส่วนให้เท่ากัน</label>
+            <label><input type="checkbox" name="type" value="frac-sub"> ลบเศษส่วน ต้องทำส่วนให้เท่ากัน</label>
+            <label><input type="checkbox" name="type" value="mixed-add"> บวกจำนวนคละ</label>
+            <label><input type="checkbox" name="type" value="mixed-sub"> ลบจำนวนคละ</label>
+          </fieldset>
+          <button id="startButton" type="button">เริ่ม</button>
+        </aside>
+
+        <section class="practice" aria-label="โจทย์">
+          <div class="status">
+            <span id="questionCount">ข้อที่ 1 / 10</span>
+            <span id="resultText">พร้อมเริ่ม</span>
+            <span id="timerText">เวลา 00:00</span>
+          </div>
+          <form class="fraction-work" id="answerForm">
+            <div class="problem fraction-problem" id="problemText">? / ? + ? / ? = ?</div>
+            <div class="summary" id="summaryText" hidden></div>
+            <button type="submit">ตอบ</button>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <script src="fractions.js"></script>
+  </body>
+</html>

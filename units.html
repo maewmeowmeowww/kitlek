@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>แปลงหน่วย</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <div>
+          <a class="back-link" href="index.html">← กลับหน้าหลัก</a>
+          <p class="label">Unit Conversion</p>
+          <h1>แปลงหน่วย</h1>
+        </div>
+        <img class="mascot" src="hippo-somtam.png" alt="ฮิปโปกำลังกินส้มตำ">
+      </header>
+
+      <section class="layout">
+        <aside class="panel" aria-label="ตั้งค่าแบบฝึก">
+          <h2>ตั้งค่า</h2>
+          <fieldset class="check-group">
+            <legend>ชนิดของโจทย์</legend>
+            <label><input type="checkbox" name="type" value="volume"> ปริมาตร: L, ml</label>
+            <label><input type="checkbox" name="type" value="weight"> น้ำหนัก: g, kg, t</label>
+            <label><input type="checkbox" name="type" value="length"> ความยาว: mm, cm, m, km</label>
+            <label><input type="checkbox" name="type" value="time"> เวลา: s, min, h, d</label>
+          </fieldset>
+          <button id="startButton" type="button">เริ่ม</button>
+        </aside>
+
+        <section class="practice" aria-label="โจทย์">
+          <div class="status">
+            <span id="questionCount">ข้อที่ 1 / 20</span>
+            <span id="resultText">พร้อมเริ่ม</span>
+            <span id="timerText">เวลา 00:00</span>
+          </div>
+          <div class="problem unit-problem" id="problemText">? = ?</div>
+          <div class="summary" id="summaryText" hidden></div>
+          <form class="answer" id="answerForm">
+            <input id="answerInput" type="text" inputmode="decimal" enterkeyhint="done" placeholder="คำตอบ">
+            <button type="submit">ตอบ</button>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <script src="units.js"></script>
+  </body>
+</html>
