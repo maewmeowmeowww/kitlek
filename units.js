@@ -20,23 +20,11 @@ let elapsedSeconds = 0;
 let timerId = null;
 
 const typeLabels = {
-  volume: "ปริมาตร: L, ml",
-  weight: "น้ำหนัก: g, kg, t",
   length: "ความยาว: mm, cm, m, km",
   time: "เวลา: s, min, h, d"
 };
 
 const unitSets = {
-  volume: [
-    { from: "L", to: "ml", value: () => randomInt(1, 20), factor: 1000 },
-    { from: "ml", to: "L", value: () => randomInt(1, 99) * 100, factor: 0.001 }
-  ],
-  weight: [
-    { from: "kg", to: "g", value: () => randomInt(1, 50), factor: 1000 },
-    { from: "g", to: "kg", value: () => randomInt(1, 99) * 100, factor: 0.001 },
-    { from: "t", to: "kg", value: () => randomInt(1, 20), factor: 1000 },
-    { from: "kg", to: "t", value: () => randomInt(1, 99) * 100, factor: 0.001 }
-  ],
   length: [
     { from: "cm", to: "mm", value: () => randomInt(1, 90), factor: 10 },
     { from: "mm", to: "cm", value: () => randomInt(10, 990), factor: 0.1 },
