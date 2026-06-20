@@ -21,18 +21,11 @@ let elapsedSeconds = 0;
 let timerId = null;
 
 const typeLabels = {
-  "add-1": "บวกเลข 1 หลัก",
   "add-2": "บวกเลข 2 หลัก",
-  "sub-1": "ลบเลข 1 หลัก",
-  "sub-2-1": "ลบเลข 2 หลัก - 1 หลัก",
   "sub-2": "ลบเลข 2 หลัก",
   "mul-2x1": "คูณ 2 หลัก × 1 หลัก",
   "div-2x1": "หาร 2 หลัก ÷ 1 หลัก ไม่มีเศษ"
 };
-
-for (let table = 1; table <= 12; table += 1) {
-  typeLabels[`mul-table-${table}`] = `คูณ แม่ ${table}`;
-}
 
 function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -89,29 +82,10 @@ function hideSummary() {
 }
 
 function makeQuestion(type) {
-  if (type === "add-1") {
-    const a = randomInt(1, 9);
-    const b = randomInt(1, 9);
-    return { text: `${a} + ${b} = ?`, answer: a + b };
-  }
-
   if (type === "add-2") {
     const a = randomInt(10, 89);
     const b = randomInt(10, 99 - a);
     return { text: `${a} + ${b} = ?`, answer: a + b };
-  }
-
-  if (type === "sub-1") {
-    let a = randomInt(1, 9);
-    let b = randomInt(1, 9);
-    if (b > a) [a, b] = [b, a];
-    return { text: `${a} - ${b} = ?`, answer: a - b };
-  }
-
-  if (type === "sub-2-1") {
-    const a = randomInt(10, 99);
-    const b = randomInt(1, 9);
-    return { text: `${a} - ${b} = ?`, answer: a - b };
   }
 
   if (type === "sub-2") {
@@ -119,12 +93,6 @@ function makeQuestion(type) {
     let b = randomInt(10, 99);
     if (b > a) [a, b] = [b, a];
     return { text: `${a} - ${b} = ?`, answer: a - b };
-  }
-
-  if (type.startsWith("mul-table-")) {
-    const a = Number(type.replace("mul-table-", ""));
-    const b = randomInt(1, 12);
-    return { text: `${a} × ${b} = ?`, answer: a * b };
   }
 
   if (type === "mul-2x1") {
