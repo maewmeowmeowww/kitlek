@@ -8,10 +8,9 @@ const questionCount = document.querySelector("#questionCount");
 const summaryText = document.querySelector("#summaryText");
 const timerText = document.querySelector("#timerText");
 const typeInputs = [...document.querySelectorAll('input[name="type"]')];
-const countInputs = [...document.querySelectorAll('input[name="count"]')];
 
 let currentQuestion = 1;
-let totalQuestions = 20;
+const totalQuestions = 20;
 let currentAnswer = null;
 let correctCount = 0;
 let missedCurrentQuestion = false;
@@ -33,11 +32,6 @@ function randomInt(min, max) {
 
 function selectedTypes() {
   return typeInputs.filter((input) => input.checked).map((input) => input.value);
-}
-
-function selectedCount() {
-  const checked = countInputs.find((input) => input.checked);
-  return Number(checked ? checked.value : 20);
 }
 
 function formatTime(seconds) {
@@ -149,21 +143,11 @@ function startPractice() {
   currentQuestion = 1;
   correctCount = 0;
   missedCurrentQuestion = false;
-  totalQuestions = selectedCount();
   if (activeTypes.length > 0) {
     startTimer();
   }
   nextQuestion();
 }
-
-countInputs.forEach((input) => {
-  input.addEventListener("change", () => {
-    if (!input.checked) return;
-    countInputs.forEach((other) => {
-      if (other !== input) other.checked = false;
-    });
-  });
-});
 
 startButton.addEventListener("click", startPractice);
 
