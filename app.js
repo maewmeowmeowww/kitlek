@@ -10,7 +10,7 @@ const timerText = document.querySelector("#timerText");
 const typeInputs = [...document.querySelectorAll('input[name="type"]')];
 
 let currentQuestion = 1;
-const totalQuestions = 20;
+let totalQuestions = 20;
 let currentAnswer = null;
 let correctCount = 0;
 let missedCurrentQuestion = false;
@@ -22,8 +22,19 @@ let timerId = null;
 const typeLabels = {
   "add-2": "บวกเลข 2 หลัก",
   "sub-2": "ลบเลข 2 หลัก",
+  "mul-table-2-4": "คูณ แม่ 2-4",
+  "mul-table-5-7": "คูณ แม่ 5-7",
+  "mul-table-8-9": "คูณ แม่ 8-9",
+  "mul-table-11-12": "คูณ แม่ 11-12",
   "mul-2x1": "คูณ 2 หลัก × 1 หลัก",
   "div-2x1": "หาร 2 หลัก ÷ 1 หลัก ไม่มีเศษ"
+};
+
+const tableGroups = {
+  "mul-table-2-4": [2, 3, 4],
+  "mul-table-5-7": [5, 6, 7],
+  "mul-table-8-9": [8, 9],
+  "mul-table-11-12": [11, 12]
 };
 
 function randomInt(min, max) {
@@ -32,6 +43,10 @@ function randomInt(min, max) {
 
 function selectedTypes() {
   return typeInputs.filter((input) => input.checked).map((input) => input.value);
+}
+
+function questionLimit(types) {
+  return types.some((type) => type.startsWith("mul-table-")) ? 30 : 20;
 }
 
 function formatTime(seconds) {
@@ -89,6 +104,13 @@ function makeQuestion(type) {
     return { text: `${a} - ${b} = ?`, answer: a - b };
   }
 
+  if (type.startsWith("mul-table-")) {
+    const group = tableGroups[type];
+    const a = group[randomInt(0, group.length - 1)];
+    const b = randomInt(1, 12);
+    return { text: `${a} × ${b} = ?`, answer: a * b };
+  }
+
   if (type === "mul-2x1") {
     const a = randomInt(10, 99);
     const b = randomInt(1, 9);
@@ -143,6 +165,7 @@ function startPractice() {
   currentQuestion = 1;
   correctCount = 0;
   missedCurrentQuestion = false;
+  totalQuestions = questionLimit(activeTypes);
   if (activeTypes.length > 0) {
     startTimer();
   }
